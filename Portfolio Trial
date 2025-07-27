@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alyssa Faustino Clone</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fff;
+      color: #111;
+      overflow: hidden;
+    }
+
+    #smooth-wrapper, #smooth-content {
+      height: 100%;
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 10vw;
+      font-weight: 800;
+      line-height: 1;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    .section {
+      padding: 100px 20px;
+      font-size: 1.25rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+      <section class="hero">
+        <h1 class="hero-text">Alyssa Faustino</h1>
+      </section>
+
+      <section class="section">
+        <p>This is a cloned layout inspired by alyssafaustino.com. You can add animations, content, and transitions here.</p>
+      </section>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.35/bundled/lenis.min.js"></script>
+  <script>
+    // Lenis smooth scrolling
+    const lenis = new Lenis()
+    function raf(time) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+    }
+    requestAnimationFrame(raf)
+
+    // GSAP hero animation
+    gsap.to(".hero-text", {
+      opacity: 1,
+      y: 0,
+      duration: 1.5,
+      ease: "power3.out",
+      delay: 0.5
+    });
+  </script>
+</body>
+
+</html>
